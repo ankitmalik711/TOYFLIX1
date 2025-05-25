@@ -17,23 +17,47 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>$(MARKETING_VERSION)</string>
+	<string>2.0.6</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>app-1-775054934711-ios-3cff9ddc1c2291d0864332</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<string>3</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>12.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-	  <!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
 		<key>NSAllowsArbitraryLoads</key>
 		<false/>
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<string>This app requires access to your location to provide continuous location-based services, such as real-time route tracking and personalized recommendations based on your location.</string>
+<key>NSLocationAlwaysUsageDescription</key>
+<string>We need access to your location at all times to provide continuous navigation assistance and alerts for location-based services.</string>
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>We need access to your location while using the app to display your current location on the map and provide location-based search results.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires access to your photo library to allow you to upload images.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Akrobat-SemiBold.otf</string>
+		<string>Little Comet Demo Version.otf</string>
+		<string>Quicksand-Regular.ttf</string>
+		<string>Urbanist-Regular.ttf</string>
+		<string>NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -43,8 +67,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>

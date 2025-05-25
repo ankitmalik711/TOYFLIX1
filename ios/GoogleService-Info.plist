@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>775054934711-1c95c19kj39reavsoh9egndsj890v66r.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.775054934711-1c95c19kj39reavsoh9egndsj890v66r</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>775054934711-9uihapu5sopq0ip0r18p404hs4dk4ic4.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDu5ZUJdBcAHIE1jL8gOVT4DjzMUlxgB6g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>775054934711</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.bommalu.toyrental</string>
+	<key>PROJECT_ID</key>
+	<string>toyflix-ac031</string>
+	<key>STORAGE_BUCKET</key>
+	<string>toyflix-ac031.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:775054934711:ios:3cff9ddc1c2291d0864332</string>
+</dict>
+</plist>

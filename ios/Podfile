@@ -1,3 +1,6 @@
+# Specify the path to react-native-maps
+rn_maps_path = '../node_modules/react-native-maps'
+
 # Resolve react_native_pods.rb with node to allow for hoisting
 require Pod::Executable.execute_command('node', ['-p',
   'require.resolve(
@@ -5,16 +8,20 @@ require Pod::Executable.execute_command('node', ['-p',
     {paths: [process.argv[1]]},
   )', __dir__]).strip
 
-platform :ios, min_ios_version_supported
+platform :ios, '14'
+
 prepare_react_native_project!
 
+# Use static frameworks to avoid conflicts with Firebase and other dependencies
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil
   Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
-  use_frameworks! :linkage => linkage.to_sym
+  use_frameworks! :linkage => :static # Ensuring static frameworks
+  $RNFirebaseAsStaticFramework = true
 end
 
 target 'TOYFLIX' do
+  # Install React Native and Native Modules
   config = use_native_modules!
 
   use_react_native!(
@@ -23,18 +30,41 @@ target 'TOYFLIX' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  # Firebase-related pods with modular headers
+  pod 'FirebaseCore', :modular_headers => true
+  pod 'GoogleUtilities', :modular_headers => true
+  # Add other Firebase pods if needed (e.g., 'Firebase/Auth', 'Firebase/Analytics')
+
+  # React Native Maps dependencies (Google Maps SDK)
+  pod 'react-native-google-maps', :path => rn_maps_path
+
+  # Uncomment if you're using Google Maps SDK directly, but keep the API key configuration in `AppDelegate.m`
+  pod 'GoogleMaps'  # Ensure you have set up the API key in your AppDelegate
+  pod 'Google-Maps-iOS-Utils'  # Utility library for Google Maps
+
   target 'TOYFLIXTests' do
     inherit! :complete
     # Pods for testing
   end
 
   post_install do |installer|
-    # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
+    # Post install script for React Native
     react_native_post_install(
       installer,
       config[:reactNativePath],
-      :mac_catalyst_enabled => false,
-      # :ccache_enabled => true
+      :mac_catalyst_enabled => false # Disable Mac Catalyst to avoid issues
     )
+
+    # Workaround to fix duplicate privacy.bundle issue (RCT-Folly and React-Core)
+    installer.pods_project.targets.each do |target|
+      if target.name == "RCT-Folly" || target.name.include?("React-Core")
+        target.resources_build_phase.clear
+      end
+
+      # Ensure dSYMs are generated for all frameworks
+      target.build_configurations.each do |config|
+        config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf-with-dsym'
+      end
+    end
   end
 end

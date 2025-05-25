@@ -1,0 +1,25 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/src/fonts/Akrobat-SemiBold.otf",
+      "sha1": "b0a3f248efba15c86c5e4aafe6c3e9ac89ff4483"
+    },
+    {
+      "path": "assets/src/fonts/Little Comet Demo Version.otf",
+      "sha1": "05a87b359fc0f9418450f18d40e101fa15d56f19"
+    },
+    {
+      "path": "assets/src/fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf",
+      "sha1": "0bc82dfdb6c913d99eedb88d55e5d61b33ecd210"
+    },
+    {
+      "path": "assets/src/fonts/Quicksand-Regular.ttf",
+      "sha1": "ba6e4d47926d643a8a4b509b193b3a87c3ea385d"
+    },
+    {
+      "path": "assets/src/fonts/Urbanist-Regular.ttf",
+      "sha1": "ca6e793bc43b42306c06fedc353c68af20ee2c7b"
+    }
+  ]
+}
